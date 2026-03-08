@@ -1,53 +1,80 @@
-# passage README
+# PassageJS Syntax Highlighting
 
-This is the README for your extension "passage". After writing up a brief description, we recommend including the following sections.
+Beautiful syntax highlighting for PassageJS interactive fiction files (`.psg`) in Visual Studio Code.
+
+## What is PassageJS?
+
+PassageJS is a powerful alternative to Twine and RenPy for creating interactive fiction and visual novels. It features:
+
+- **Markdown-based** writing with custom extensions
+- **Smart linking** with direct links, relative links, and random group selection
+- **Built-in animations** like wiggle, typewriter, fade-in, and delayed reveals
+- **Transition system** for smooth narrative flow
+- **Zero dependencies** - pure vanilla JavaScript
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension provides comprehensive syntax highlighting for:
 
-For example if there is an image subfolder under your extension project workspace:
+- **Custom macros** - `<<typewriter>>`, `<<onclick>>`, `<<hop>>`, `<<bgcolor>>`, etc.
+- **Passage links** - `[[link text|path/to/passage]]` and `[[goto|group/*]]`
+- **Markdown formatting** - bold, italic, headings, lists
+- **Nested structures** - properly highlights macros within links and other macros
+- **Macro attributes** - `<<onclick text="click me">>`, `<<bgcolor color='#1f1f1f'>>`
 
-\!\[feature X\]\(images/feature-x.png\)
+### Syntax Example
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+```passage
+<<bgcolor color='#1f1f1f'>>
+# Welcome to PassageJS!
+
+<<typewriter speed="20">>
+This is an example passage with custom animations.
+<</typewriter>>
+
+<<onclick>>
+Click to reveal hidden content!
+<</onclick>>
+
+[[Continue the story|chapter1/intro]]
+[[Random encounter|encounters/*]]
+```
+
+## Installation
+
+1. Open VS Code
+2. Press `Ctrl+P` (or `Cmd+P` on Mac)
+3. Type: `ext install sambo4118.passage`
+4. Press Enter
+
+Or search for "PassageJS" in the Extensions view (`Ctrl+Shift+X`).
+
+## Usage
+
+The extension automatically activates for files with the `.psg` extension. Just create or open any `.psg` file and start writing!
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+No dependencies or additional setup required. Just install and use!
 
-## Extension Settings
+## Contributing
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Found a bug or want to suggest a feature? Visit the [GitHub repository](https://github.com/sambo4118/passage) to open an issue or submit a pull request.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+Initial release of PassageJS syntax highlighting:
+- Full macro syntax support
+- Passage link highlighting
+- Markdown formatting
+- Nested structure support
+- Attribute parsing for macros
 
 ---
+
+**Enjoy writing interactive fiction with PassageJS!** 📖✨
 
 ## Working with Markdown
 
