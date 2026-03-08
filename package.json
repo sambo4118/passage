@@ -3,7 +3,7 @@
   "displayName": "PassageJS Syntax",
   "description": "Syntax highlighting for PassageJS interactive fiction files (.psg)",
   "version": "0.0.1",
-  "publisher": "sambo4118",
+  "publisher": "Sambo",
   "repository": {
     "type": "git",
     "url": "https://github.com/sambo4118/passage"
