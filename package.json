@@ -1,0 +1,38 @@
+{
+  "name": "passage",
+  "displayName": "PassageJS Syntax",
+  "description": "Syntax highlighting for PassageJS interactive fiction files (.psg)",
+  "version": "0.0.1",
+  "publisher": "sambo4118",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sambo4118/passage"
+  },
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "passagejs",
+    "interactive fiction",
+    "twine",
+    "renpy",
+    "syntax highlighting"
+  ],
+  "license": "MIT",
+  "contributes": {
+    "languages": [{
+      "id": "passage",
+      "aliases": ["PassageJS", "passage"],
+      "extensions": [".psg"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "passage",
+      "scopeName": "text.html.passage",
+      "path": "./syntaxes/passages.tmLanguage.json"
+    }]
+  }
+}

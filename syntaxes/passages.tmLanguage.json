@@ -1,0 +1,134 @@
+{
+  "scopeName": "text.html.passage",
+  "name": "PassageJS",
+  "fileTypes": ["psg"],
+  "patterns": [
+    {
+      "include": "#macros"
+    },
+    {
+      "include": "#links"
+    },
+    {
+      "include": "#markdown-bold"
+    },
+    {
+      "include": "#markdown-italic"
+    },
+    {
+      "include": "#markdown-heading"
+    },
+    {
+      "include": "#markdown-list"
+    }
+  ],
+  "repository": {
+    "macros": {
+      "patterns": [
+        {
+          "name": "keyword.control.passage.closing",
+          "match": "<<\\/[a-zA-Z][a-zA-Z0-9]*>>",
+          "comment": "Closing macro tags"
+        },
+        {
+          "name": "keyword.control.passage.opening",
+          "match": "<<[a-zA-Z][a-zA-Z0-9]*(?:\\s+(?:[^>\"']|\"[^\"]*\"|'[^']*')*)?>>",
+          "comment": "Opening macro tags with optional attributes"
+        }
+      ]
+    },
+    "markdown-bold": {
+      "patterns": [
+        {
+          "name": "markup.bold.passage",
+          "begin": "(\\*\\*|__)",
+          "end": "(\\1)",
+          "captures": {
+            "1": { "name": "punctuation.definition.bold.passage" }
+          },
+          "patterns": [
+            {
+              "include": "#macros"
+            },
+            {
+              "include": "#links"
+            }
+          ]
+        }
+      ]
+    },
+    "markdown-italic": {
+      "patterns": [
+        {
+          "name": "markup.italic.passage",
+          "begin": "(\\*|_)(?!\\1)",
+          "end": "(\\1)",
+          "captures": {
+            "1": { "name": "punctuation.definition.italic.passage" }
+          },
+          "patterns": [
+            {
+              "include": "#macros"
+            },
+            {
+              "include": "#links"
+            }
+          ]
+        }
+      ]
+    },
+    "links": {
+      "patterns": [
+        {
+          "name": "meta.link.wiki.passage",
+          "begin": "(\\[\\[)",
+          "beginCaptures": {
+            "1": { "name": "punctuation.definition.link.begin.passage" }
+          },
+          "end": "(\\]\\])",
+          "endCaptures": {
+            "1": { "name": "punctuation.definition.link.end.passage" }
+          },
+          "patterns": [
+            {
+              "include": "#macros"
+            },
+            {
+              "name": "meta.link.text.passage",
+              "match": "([^|\\]<]+)(\\|)([^\\]<]+)",
+              "captures": {
+                "1": { "name": "string.other.link.title.passage" },
+                "2": { "name": "punctuation.separator.pipe.passage" },
+                "3": { "name": "markup.underline.link.passage" }
+              }
+            },
+            {
+              "name": "markup.underline.link.passage",
+              "match": "[^\\]<]+"
+            }
+          ]
+        }
+      ]
+    },
+    "markdown-heading": {
+      "patterns": [
+        {
+          "name": "markup.heading.passage",
+          "match": "^(#{1,6})\\s+(.*)$",
+          "captures": {
+            "1": { "name": "punctuation.definition.heading.passage" },
+            "2": { "name": "entity.name.section.passage" }
+          }
+        }
+      ]
+    },
+    "markdown-list": {
+      "patterns": [
+        {
+          "name": "markup.list.passage",
+          "match": "^\\s*([*+-]|\\d+\\.)\\s+"
+        }
+      ]
+    }
+  }
+}
